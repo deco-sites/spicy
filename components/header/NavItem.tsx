@@ -53,7 +53,7 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex flex-row items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen mt-[7.438rem] min-h-[500px] max-h-[500px]`}
+            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex flex-row items-start justify-center gap-6 border-t-1 border-b-2 border-default w-screen mt-[7.438rem] min-h-[500px] max-h-[500px] overflow-hidden`}
             style={{ top: "-0.625rem", left: "0" }}
           >
             <div class="flex justify-between w-full max-w-[1455px] pl-[13.75rem] pr-[3.125rem]">
@@ -78,7 +78,8 @@ function NavItem({ item }: { item: INavItem }) {
                           >
                             <Text
                               variant="caption"
-                              class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a] !hover:text-[#53565a80] ease-out duration-300"
+                              class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a] !hover:text-[#53565a80]"
+                              style={{ transition: "0.3s ease-out color" }}
                             >
                               {itemLvl3.label}
                             </Text>
@@ -91,7 +92,8 @@ function NavItem({ item }: { item: INavItem }) {
                         >
                           <Text
                             variant="caption"
-                            class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a80] !hover:text-[#53565a] ease-out duration-300"
+                            class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a80] !hover:text-[#53565a]"
+                            style={{ transition: "0.3s ease-out color" }}
                           >
                             Ver tudo {">"}
                           </Text>
