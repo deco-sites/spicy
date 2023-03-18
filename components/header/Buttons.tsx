@@ -38,7 +38,11 @@ function MenuButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
-  const totalItems = cart.value?.items.length || null;
+  const totalProducts = cart.value?.items.length || null;
+  const totalItems = cart?.value?.items.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  ) || "0";
 
   return (
     <Button
@@ -50,12 +54,15 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
-      {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
-          {totalItems}
-        </span>
-      )}
+      <Icon
+        id="ShoppingCart"
+        width="1.75rem"
+        height="1.75rem"
+        strokeWidth={1}
+      />
+      <span class="absolute text-[9px] right-[-0.625rem] top-[-0.375rem] rounded-full bg-badge text-white w-[fit-content] h-[fit-content] flex items-center justify-center px-[8px] py-[5px] leading-[1] text-[0.625rem]">
+        {totalItems}
+      </span>
     </Button>
   );
 }

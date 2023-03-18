@@ -36,7 +36,7 @@ const options: Omit<Options, "selfURL"> = {
       colors: {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
-        "badge": "#8C3D3D", // shopping cart tem isso tambem
+        "badge": "#e10615", // shopping cart tem isso tambem
         "footer": "#003232",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
@@ -60,7 +60,8 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
-        "store-color": "#e30613"
+        "store-color": "#e30613",
+        "search-bar": "#777",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],

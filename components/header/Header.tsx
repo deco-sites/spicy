@@ -1,3 +1,5 @@
+import { tw } from "twind";
+import { css, theme } from "twind/css";
 import Modals from "$store/islands/HeaderModals.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import Navbar from "./Navbar.tsx";
@@ -30,6 +32,11 @@ export interface Props {
   navItems?: NavItem[];
 }
 
+const headerShadow = css` 
+& {
+  box-shadow: ${theme("boxShadow.default")}
+}`;
+
 function Header(
   {
     navItems = [],
@@ -37,7 +44,7 @@ function Header(
 ) {
   return (
     <header>
-      <div class="bg-default fixed w-full z-50">
+      <div class={`bg-default fixed w-full z-50 ${tw(headerShadow)}`}>
         <Navbar items={navItems} />
       </div>
 

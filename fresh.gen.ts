@@ -14,8 +14,9 @@ import * as $$0 from "./islands/AddToCartButton.tsx";
 import * as $$1 from "./islands/HeaderButton.tsx";
 import * as $$2 from "./islands/HeaderModals.tsx";
 import * as $$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$4 from "./islands/SearchControls.tsx";
-import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$4 from "./islands/SearchBar.tsx";
+import * as $$5 from "./islands/SearchControls.tsx";
+import * as $$6 from "./islands/SliderJS.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/CookieConsent.tsx";
@@ -67,8 +68,9 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$1,
     "./islands/HeaderModals.tsx": $$2,
     "./islands/HeaderSearchMenu.tsx": $$3,
-    "./islands/SearchControls.tsx": $$4,
-    "./islands/SliderJS.tsx": $$5,
+    "./islands/SearchBar.tsx": $$4,
+    "./islands/SearchControls.tsx": $$5,
+    "./islands/SliderJS.tsx": $$6,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -323,6 +325,14 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "Microphone",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Search",
+                    },
+                    {
+                      "type": "string",
                       "const": "ChevronLeft",
                     },
                     {
@@ -524,6 +534,14 @@ const manifest: DecoManifest = {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "Microphone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Search",
+                              },
                               {
                                 "type": "string",
                                 "const": "ChevronLeft",
