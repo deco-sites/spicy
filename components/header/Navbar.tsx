@@ -40,7 +40,7 @@ function Navbar({ items }: {
 
       {/* Desktop Version */}
       <div
-        class={`hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-[2.813rem] pr-[2.813rem] ${
+        class={`hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-[2.813rem] pr-[2.813rem] ${`h-[110px]`} ${
           tw(headerShadow)
         }`}
       >

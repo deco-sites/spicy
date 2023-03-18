@@ -36,7 +36,7 @@ function Header(
   }: Props,
 ) {
   return (
-    <header class={`h-[${headerHeight}]`}>
+    <header>
       <div class="bg-default fixed w-full z-50">
         <Navbar items={navItems} />
       </div>
