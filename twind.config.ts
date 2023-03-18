@@ -129,6 +129,7 @@ const options: Omit<Options, "selfURL"> = {
       md: "1150px",
       lg: "1000px",
       xl: "1100px",
+      customXl: "1200px",
       xxl: "1440px",
       "2xl": "1536px",
     },

@@ -57,10 +57,10 @@ function NavItem({ item }: { item: INavItem }) {
             style={{ top: "-0.625rem", left: "0" }}
           >
             <div class="flex justify-between w-full max-w-[1455px] pl-[13.75rem] pr-[3.125rem]">
-              <ul class="flex flex-col flex-wrap max-h-[500px] min-w-[570px] gap-y-[0.5rem]">
+              <ul class="inline-flex flex-col flex-wrap max-h-[500px] gap-y-[0.5rem] pr-[359px]">
                 {children.map((itemLvl2) => (
                   <>
-                    <ul className="flex flex-col mt-[1.25rem] mr-[3.125rem] w-[fit-content]">
+                    <ul className="flex flex-col pt-[1.25rem] pr-[3.125rem] w-[fit-content]">
                       <li className="h-[fit-content] mb-[1.25rem] leading-[1.438rem]  last:mb-0">
                         <a
                           class={`hover:no-underline !lg:(text-[1.188rem]) text-primary ${
@@ -105,13 +105,20 @@ function NavItem({ item }: { item: INavItem }) {
               </ul>
               {image?.src?.length
                 ? (
-                  <div class="inline-flex flex-1 items-center max-w-[440px]">
-                    <img
-                      src={image.src}
-                      alt={image?.alt}
-                      width="100%"
-                      height="auto"
-                    />
+                  <div class="inline-flex flex-1 items-center max-w-[440px] ">
+                    <div class="overflow-hidden inline-flex flex-1 items-center max-h-[320px]">
+                      <div class="relative flex flex-1 pb-[100%]">
+                        <img
+                          src={image.src}
+                          alt={image?.alt}
+                          class="absolute object-cover customXl:(object-contain)"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 )
                 : <></>}
