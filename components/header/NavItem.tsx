@@ -27,8 +27,12 @@ function NavItem({ item }: { item: INavItem }) {
   const { href, label, children, image } = item;
 
   return (
-    <li class={`group flex items-center ${tw(hoverDepartmenet)} pt-[0.938rem] pb-[10px]`}>
-      <a href={href} class="font-medium">
+    <li
+      class={`group flex items-center ${
+        tw(hoverDepartmenet)
+      } pt-[0.938rem] pb-[10px]`}
+    >
+      <a href={href} class="font-medium text-primary text-[1rem]">
         {label}
       </a>
 

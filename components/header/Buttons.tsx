@@ -38,7 +38,7 @@ function MenuButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
-  const totalProducts = cart.value?.items.length || null;
+  const totalProducts = cart.value?.items?.length || "0";
   const totalItems = cart?.value?.items.reduce(
     (acc, item) => acc + item.quantity,
     0,
@@ -47,7 +47,7 @@ function CartButton() {
   return (
     <Button
       variant="icon"
-      class="relative"
+      class="relative hover:bg-transparent"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {

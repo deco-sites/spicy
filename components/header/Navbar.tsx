@@ -1,3 +1,5 @@
+import { tw } from "twind";
+import { css, theme } from "twind/css";
 import SearchBar from "$store/islands/SearchBar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
@@ -6,6 +8,14 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import HeaderButton from "$store/islands/HeaderButton.tsx";
+
+const hideTextWeddingList = css`
+& {
+  @media (min-width: ${theme("screens.lg")}) {
+    display: inline-block;
+  }
+}
+`;
 
 function Navbar({ items }: {
   items: INavItem[];
@@ -53,7 +63,41 @@ function Navbar({ items }: {
               as="a"
               variant="icon"
               href="/login"
+              aria-label="Favoritos"
+              class="hover:bg-transparent"
+            >
+              <Icon
+                id="WeddingList"
+                width="1.75rem"
+                height="auto"
+                strokeWidth={1}
+              />
+              <span
+                class={`hidden lg:inline-block`}
+              >
+                Lista de Casamento
+              </span>
+            </Button>
+            <Button
+              as="a"
+              variant="icon"
+              href="/login"
+              aria-label="Favoritos"
+              class="hover:bg-transparent"
+            >
+              <Icon
+                id="WishList"
+                width="1.75rem"
+                height="auto"
+                strokeWidth={1}
+              />
+            </Button>
+            <Button
+              as="a"
+              variant="icon"
+              href="/login"
               aria-label="Log in"
+              class="hover:bg-transparent"
             >
               <Icon id="User" width="1.625rem" height="auto" strokeWidth={1} />
               <div class="flex flex-col">

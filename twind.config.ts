@@ -46,6 +46,7 @@ const options: Omit<Options, "selfURL"> = {
       textColor: {
         "default": "#161616",
         "default-inverse": "#FFFFFF",
+        "primary": "#3c3c3c",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
         "price": "#8C3D3D",
@@ -124,9 +125,9 @@ const options: Omit<Options, "selfURL"> = {
     },
     screens: {
       sm: "640px",
-      md: "768px",
-      lg: "1151px",
-      xl: "1280px",
+      md: "1150px",
+      lg: "1250px",
+      xl: "1440px",
       "2xl": "1536px",
     },
   },

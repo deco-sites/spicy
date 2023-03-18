@@ -325,6 +325,14 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "WeddingList",
+                    },
+                    {
+                      "type": "string",
+                      "const": "WishList",
+                    },
+                    {
+                      "type": "string",
                       "const": "Microphone",
                     },
                     {
@@ -534,6 +542,14 @@ const manifest: DecoManifest = {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "WeddingList",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WishList",
+                              },
                               {
                                 "type": "string",
                                 "const": "Microphone",
