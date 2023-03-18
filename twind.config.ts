@@ -60,6 +60,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "store-color": "#e30613"
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -83,6 +84,12 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "light": "300",
+        "regular": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700",
+        "extrabold": "800",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -105,19 +112,19 @@ const options: Omit<Options, "selfURL"> = {
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
-        default: "0px 1px 4px 0px #0000001F",
+        default: "0px 3px 6px #00000029",
         md: "0px 1px 5px 0px #00000024",
         lg: "0px 4px 10px 0px #0000001F",
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Asap", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
       sm: "640px",
       md: "768px",
-      lg: "1024px",
+      lg: "1151px",
       xl: "1280px",
       "2xl": "1536px",
     },

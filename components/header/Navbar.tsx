@@ -1,3 +1,6 @@
+import { asset } from "$fresh/runtime.ts";
+import { tw } from "twind";
+import { css, theme } from "twind/css";
 import HeaderButton from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
@@ -5,12 +8,14 @@ import Button from "$store/components/ui/Button.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 
-function Navbar({ items, searchbar }: {
+const headerShadow = css` 
+& {
+  box-shadow: ${theme("boxShadow.default")}
+}`;
+
+function Navbar({ items }: {
   items: INavItem[];
-  searchbar: SearchbarProps;
 }) {
   return (
     <>
@@ -22,31 +27,42 @@ function Navbar({ items, searchbar }: {
 
         <a
           href="/"
-          class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
+          class={`flex-grow inline-flex items-center  no-underline min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
           <Icon id="Logo" width={126} height={16} />
         </a>
 
         <div class="flex gap-1">
-          <HeaderButton variant="search" />
           <HeaderButton variant="cart" />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+      <div
+        class={`hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-[2.813rem] pr-[2.813rem] ${
+          tw(headerShadow)
+        }`}
+      >
+        <div class="flex-none mr-[2.813rem]">
+          <a
+            href="/"
+            aria-label="Store logo"
+            class="relative z-[51] inline-block h-[110px]"
+          >
+            <img
+              className="bg-white"
+              width="130px"
+              height="130px"
+              src={asset(`/spicy-logo.svg`)}
+              alt="Spicy"
+            />
           </a>
         </div>
-        <div class="flex-auto flex justify-center">
+        <ul className="flex-auto flex justify-between">
           {items.map((item) => <NavItem item={item} />)}
-        </div>
+        </ul>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
           <Button
             as="a"
             variant="icon"
