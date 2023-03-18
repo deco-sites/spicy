@@ -42,6 +42,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "store-color": "#e30613",
       },
       textColor: {
         "default": "#161616",
@@ -127,7 +128,8 @@ const options: Omit<Options, "selfURL"> = {
       sm: "640px",
       md: "1150px",
       lg: "1000px",
-      xl: "1440px",
+      xl: "1100px",
+      xxl: "1440px",
       "2xl": "1536px",
     },
   },
