@@ -126,7 +126,7 @@ const options: Omit<Options, "selfURL"> = {
     screens: {
       sm: "640px",
       md: "1150px",
-      lg: "1250px",
+      lg: "1000px",
       xl: "1440px",
       "2xl": "1536px",
     },

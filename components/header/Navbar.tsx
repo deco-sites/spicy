@@ -24,7 +24,7 @@ function Navbar({ items }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`lg:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
       >
         <HeaderButton variant="menu" />
 
@@ -43,7 +43,7 @@ function Navbar({ items }: {
 
       {/* Desktop Version */}
       <div
-        class={`hidden md:flex flex-row w-full max-w-[1440px] h-[110px] mx-auto pl-[2.813rem] pr-[2.813rem]`}
+        class={`hidden lg:flex flex-row w-full max-w-[1440px] h-[110px] mx-auto pl-[2.813rem] pr-[2.813rem]`}
       >
         <div class="flex-none mr-[2.813rem]">
           <a

@@ -10,7 +10,7 @@ function SearchBar() {
   };
 
   return (
-    <div class="flex-1 relative flex items-center">
+    <div class="flex-1 relative flex items-center mr-[1rem]">
       <Icon
         id="Microphone"
         width="12px"
