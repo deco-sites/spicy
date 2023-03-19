@@ -32,7 +32,7 @@ function SearchBar() {
   };
 
   if (!isSearchPage) {
-    window.localStorage.removeItem("searchQuery");
+    window?.localStorage?.removeItem("searchQuery");
   }
 
   useEffect(() => {
