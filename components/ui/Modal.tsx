@@ -67,7 +67,11 @@ const Modal = ({
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
       <section class="overflow-y-auto h-full bg-default flex flex-col">
-        <header class="flex pl-[0.438rem] pr-[0.938rem] py-[3px] justify-between items-center bg-bar-mobile">
+        <header
+          class={`flex pl-[0.438rem] pr-[0.938rem] py-[3px] justify-between items-center ${
+            mode === "sidebar-left" ? "bg-bar-mobile" : ""
+          }`}
+        >
           {mode === "sidebar-left"
             ? (
               <>

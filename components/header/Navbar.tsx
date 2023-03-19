@@ -13,7 +13,7 @@ function Navbar({ items }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`lg:hidden flex flex-row justify-between items-center h-[60px] border-b-1 border-default w-full px-2 gap-2`}
+        class={`lg:hidden flex flex-row justify-between items-center h-[60px] w-full px-2 gap-2`}
       >
         <HeaderButton variant="menu" />
 
@@ -25,7 +25,7 @@ function Navbar({ items }: {
             <Icon id="Logo" width="83px" height="83px" class="bg-white" />
           </a>
 
-        <div class="flex gap-1">
+        <div class="flex gap-1 mr-[5px]">
           <HeaderButton variant="cart" />
         </div>
       </div>

@@ -61,7 +61,7 @@ function CartButton() {
         height="1.75rem"
         strokeWidth={1}
       />
-      <span class="absolute text-[9px] right-[-0.625rem] top-[-0.375rem] rounded-full bg-badge text-white w-[fit-content] h-[fit-content] flex items-center justify-center px-[8px] py-[5px] leading-[1] text-[0.625rem]">
+      <span class="hidden lg:flex absolute text-[9px] right-[-0.625rem] top-[-0.375rem] rounded-full bg-badge text-white w-[fit-content] h-[fit-content] flex items-center justify-center px-[8px] py-[5px] leading-[1] text-[0.625rem]">
         {totalItems}
       </span>
     </Button>
