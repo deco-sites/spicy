@@ -1,4 +1,4 @@
-import SearchBar from "$store/components/header/SearchBar.tsx";
+import SearchBar from "$store/islands/HeaderSearchBar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 
@@ -18,12 +18,12 @@ function Navbar({ items }: {
         <HeaderButton variant="menu" />
 
         <a
-            href="/"
-            aria-label="Store logo"
-            class="relative z-[51] inline-block h-[60px] mr-auto"
-          >
-            <Icon id="Logo" width="83px" height="83px" class="bg-white" />
-          </a>
+          href="/"
+          aria-label="Store logo"
+          class="relative z-[51] inline-block h-[60px] mr-auto"
+        >
+          <Icon id="Logo" width="83px" height="83px" class="bg-white" />
+        </a>
 
         <div class="flex gap-1 mr-[5px]">
           <HeaderButton variant="search" />
