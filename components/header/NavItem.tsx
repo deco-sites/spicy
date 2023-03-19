@@ -5,12 +5,12 @@ import Image from "deco-sites/std/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
 
 const hoverDepartmenet = css`
-    &:last-child > a {
+    & > a {
       transition: ease-out 0.2s;
       border-bottom: 2px solid transparent;
-      &:hover{
-        border-bottom: 2px solid  ${theme("borderColor.store-color")};
-      }
+    }
+    &:hover > a {
+      border-bottom: 2px solid  ${theme("borderColor.store-color")};
     }
 `;
 
@@ -86,19 +86,23 @@ function NavItem({ item }: { item: INavItem }) {
                           </a>
                         </li>
                       ))}
-                      <li className="h-[fit-content] mb-[0.75rem] last:mb-0 leading-[0.75rem]">
-                        <a
-                          href={itemLvl2.href}
-                        >
-                          <Text
-                            variant="caption"
-                            class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a80] !hover:text-[#53565a]"
-                            style={{ transition: "0.3s ease-out color" }}
-                          >
-                            Ver tudo {">"}
-                          </Text>
-                        </a>
-                      </li>
+                      {itemLvl2?.children?.length
+                        ? (
+                          <li className="h-[fit-content] mb-[0.75rem] last:mb-0 leading-[0.75rem]">
+                            <a
+                              href={itemLvl2.href}
+                            >
+                              <Text
+                                variant="caption"
+                                class="hover:no-underline font-normal lg:(text-[1rem]) !text-[#53565a80] !hover:text-[#53565a]"
+                                style={{ transition: "0.3s ease-out color" }}
+                              >
+                                Ver tudo {">"}
+                              </Text>
+                            </a>
+                          </li>
+                        )
+                        : <></>}
                     </ul>
                   </>
                 ))}
