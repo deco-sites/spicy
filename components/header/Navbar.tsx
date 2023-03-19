@@ -3,10 +3,8 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 
 import NavItem from "./NavItem.tsx";
-import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import HeaderButton from "$store/islands/HeaderButton.tsx";
-
 
 function Navbar({ items }: {
   items: INavItem[];
@@ -15,17 +13,17 @@ function Navbar({ items }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`lg:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`lg:hidden flex flex-row justify-between items-center h-[60px] border-b-1 border-default w-full px-2 gap-2`}
       >
         <HeaderButton variant="menu" />
 
         <a
-          href="/"
-          class={`flex-grow inline-flex items-center  no-underline min-h-[${navbarHeight}]`}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={126} height={16} />
-        </a>
+            href="/"
+            aria-label="Store logo"
+            class="relative z-[51] inline-block h-[60px] mr-auto"
+          >
+            <Icon id="Logo" width="83px" height="83px" class="bg-white" />
+          </a>
 
         <div class="flex gap-1">
           <HeaderButton variant="cart" />

@@ -66,16 +66,104 @@ const Modal = ({
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
-          <h1>
-            <Text variant="heading-2">{title}</Text>
-          </h1>
-          <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-          </Button>
+      <section class="overflow-y-auto h-full bg-default flex flex-col">
+        <header class="flex pl-[0.438rem] pr-[0.938rem] py-[3px] justify-between items-center bg-bar-mobile">
+          {mode === "sidebar-left"
+            ? (
+              <>
+                <Button
+                  as="a"
+                  variant="icon"
+                  href="/login"
+                  aria-label="Log in"
+                  class="hover:bg-transparent"
+                >
+                  <Icon
+                    id="User"
+                    width="1.625rem"
+                    height="auto"
+                    strokeWidth={1}
+                    style={{ filter: "brightness(10)" }}
+                  />
+
+                  <div class="flex flex-col">
+                    <span class="inline-block text-white text-[1rem] font-normal leading-[1rem]">
+                      Olá Visitante!{" "}
+                      <span class="inline-block text-white text-[1rem] font-semibold leading-[1rem]">
+                        Entre agora ou Registre-se
+                      </span>
+                    </span>
+                  </div>
+                </Button>
+                <Button variant="icon" onClick={onClose} class="p-0">
+                  <Icon
+                    id="XMark"
+                    width={35}
+                    height={35}
+                    strokeWidth={3}
+                    style={{ color: "#fff" }}
+                  />
+                </Button>
+              </>
+            )
+            : (
+              <>
+                <h1>
+                  <Text variant="heading-2">{title}</Text>
+                </h1>
+                <Button variant="icon" onClick={onClose}>
+                  <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+                </Button>
+              </>
+            )}
         </header>
-        <div class="overflow-y-auto h-full flex flex-col">
+        {mode === "sidebar-left"
+          ? (
+            <ul class="flex flex-wrap">
+              <li class="flex w-full border-b-1 border-[#D4DBD7] py-[10px] px-[15px] h-[fit-content]">
+                <Button
+                  as="a"
+                  variant="icon"
+                  href="/login"
+                  aria-label="Favoritos"
+                  class="hover:bg-transparent"
+                >
+                  <Icon
+                    id="WishList"
+                    width="1.75rem"
+                    height="auto"
+                    strokeWidth={1}
+                    class="opacity-[0.85]"
+                  />
+                  <span class="text-menu-mobile text-[1.5rem] font-normal ml-[10px]">
+                    Favoritos
+                  </span>
+                </Button>
+              </li>
+              <li class="flex w-full border-b-1 border-[#D4DBD7] py-[10px] px-[15px] h-[fit-content]">
+                <Button
+                  as="a"
+                  variant="icon"
+                  href="/login"
+                  aria-label="Favoritos"
+                  class="hover:bg-transparent"
+                >
+                  <Icon
+                    id="WeddingList"
+                    width="1.75rem"
+                    height="auto"
+                    strokeWidth={1}
+                  />
+                  <span class="text-menu-mobile text-[1.5rem] font-normal ml-[10px]">
+                    Lista de Casamento
+                  </span>
+                </Button>
+              </li>
+            </ul>
+          )
+          : <></>}
+
+        <div class="h-full flex flex-col">
           {loading === "lazy" ? lazy.value && children : children}
         </div>
       </section>

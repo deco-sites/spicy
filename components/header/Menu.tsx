@@ -14,7 +14,16 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
+      class={`flex-grow min-h-[40px] flex items-center justify-start text-[1.375rem] font-normal 
+      ${item.label === "Ofertas" ? "!text-white min-h[37px] !flex !justify-center" : ""}
+      ${
+        level === 0
+          ? "px-[15px]"
+          : level === 1
+          ? "px-[45px]"
+          : "text-white px-[75px]"
+      }
+      `}
       variant={level === 0 ? "menu" : "caption"}
     >
       {item.label}
@@ -22,10 +31,18 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 
   return (
-    <li>
+    <li class={`!border-t-0 ${item.label === "Ofertas" ? '!border-b-1' : ''}`}>
       <div
-        class={`flex justify-between items-center w-full py-2 ${
-          level > 0 ? "pl-2" : ""
+        class={`flex justify-between items-center w-full py-[4px] border-b-1 
+        ${item.label === "Ofertas" ? "py-0 my-2 bg-store-color border-b-1" : ""}
+        ${
+          level === 0
+            ? "bg-transparent"
+            : level === 1
+            ? "border-white bg-[#D7D9DD]"
+            : level === 2
+            ? "border-white bg-bar-mobile"
+            : ""
         }`}
         onClick={() => {
           if (hasChildren) open.value = !open.value;
@@ -33,20 +50,13 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
       >
         {hasChildren
           ? title
-          : <a class="w-full inline-block" href={item.href}>{title}</a>}
+          : <a class={`w-full inline-block`} href={item.href}>{title}</a>}
 
         {hasChildren && (
           <Button variant="icon">
             <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-            <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
+              class={`ease-out duration-300 ${open.value === true ? "rotate-[180deg]" : ""}`}
+              id="ChevronDown"
               height={20}
               width={20}
               strokeWidth={1.5}
@@ -56,14 +66,9 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
       </div>
 
       {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
-          </li>
+        <ul
+          class={`flex-col ${open.value === true ? "flex" : "hidden"}`}
+        >
           {item.children!.map((node) => (
             <MenuItem
               item={node}
@@ -77,49 +82,22 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 }
 
 function Menu({ items }: Props) {
+  const noOrdenedItems = items;
+  const ordenedItems = noOrdenedItems;
+  const indexNovidades = ordenedItems.findIndex((obj) =>
+    obj.label === "Novidades"
+  ); // encontra o índice do objeto com label 'Novidades'
+  const novidades = ordenedItems.splice(indexNovidades, 1);
+  ordenedItems.unshift(novidades[0]); // adiciona o objeto armazenado na primeira posição do array
+  const indexOfertas = ordenedItems.findIndex((obj) => obj.label === "Ofertas");
+  const ofertas = ordenedItems.splice(indexOfertas, 1);
+  ordenedItems.unshift(ofertas[0]); // adiciona o objeto armazenado na primeira posição do array
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
-        {items.map((item) => <MenuItem item={item} />)}
-      </ul>
-
-      <ul class="flex flex-col py-2 bg-hover">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
-          </a>
-        </li>
+      <ul class="flex-grow flex flex-col divide-y divide-default">
+        {window.innerWidth > 1000
+          ? noOrdenedItems.map((item) => <MenuItem item={item} />)
+          : ordenedItems.map((item) => <MenuItem item={item} />)}
       </ul>
     </>
   );

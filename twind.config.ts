@@ -43,6 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
         "store-color": "#e30613",
+        "bar-mobile": "#A7120A",
       },
       textColor: {
         "default": "#161616",
@@ -54,6 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "menu-mobile": "#53565A",
       },
       borderColor: {
         "default": "#D4DBD7",

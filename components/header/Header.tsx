@@ -3,7 +3,6 @@ import { css, theme } from "twind/css";
 import Modals from "$store/islands/HeaderModals.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
 
 export interface NavItem {
   label: string;
