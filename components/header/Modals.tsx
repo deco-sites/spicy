@@ -7,7 +7,9 @@ import Loading from "$store/components/ui/Loading.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
-const Searchbar = lazy(() => import("$store/islands/HeaderSearchBar.tsx"));
+const Searchbar = lazy(() =>
+  import("$store/components/header/SeHe.tsx")
+);
 
 interface Props {
   menu: MenuProps;

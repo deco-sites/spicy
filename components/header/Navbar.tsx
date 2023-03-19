@@ -1,4 +1,4 @@
-import SearchBar from "$store/islands/HeaderSearchBar.tsx";
+import SearchBar from "$store/components/header/SeHe.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 
@@ -26,7 +26,7 @@ function Navbar({ items }: {
         </a>
 
         <div class="flex gap-1 mr-[5px]">
-          {/* <HeaderButton variant="search" /> */}
+          <HeaderButton variant="search" />
           <HeaderButton variant="cart" />
         </div>
       </div>
@@ -47,7 +47,7 @@ function Navbar({ items }: {
         <div class="flex flex-col justify-end flex-1">
           <div class="flex items-center justify-between">
             <div class="flex flex-1 items-center max-w-[480px]">
-              {/* <SearchBar /> */}
+              <SearchBar />
             </div>
             <Button
               as="a"
