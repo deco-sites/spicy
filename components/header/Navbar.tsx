@@ -1,4 +1,4 @@
-import SearchBar from "$store/components/header/SeHe.tsx";
+import SearchBar from "$store/islands/SearchBar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 

@@ -43,8 +43,6 @@ function Header(
 ) {
   return (
     <header>
-      
-      
       <div class={`bg-default fixed w-full z-50 ${tw(headerShadow)}`}>
         <Navbar items={navItems} />
       </div>
@@ -52,7 +50,6 @@ function Header(
       <Modals
         menu={{ items: navItems }}
       />
-      
     </header>
   );
 }

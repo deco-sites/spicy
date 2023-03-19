@@ -3,12 +3,13 @@ import { JSX } from "preact";
 import Icon from "$store/components/ui/Icon.tsx";
 
 function SearchBar() {
+  const [firstExec, setFirstExec] = useState(true);
   const isSearchPage: boolean = window?.location?.pathname === "/s";
   const initialValue = isSearchPage
     ? (window?.localStorage?.getItem("searchQuery") ?? "")
     : "";
   const [inputValue, setInputValue] = useState(initialValue);
-  let timeout: any = null;
+  let timeout: number = setTimeout(() => {}, 2500);
 
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     if (timeout !== null) {
@@ -31,12 +32,12 @@ function SearchBar() {
     window.location.href = `/s?q=${inputValue}`;
   };
 
-  if (!isSearchPage) {
-    window?.localStorage?.removeItem("searchQuery");
-  }
-
   useEffect(() => {
-  }, [inputValue]);
+    if (!isSearchPage && firstExec) {
+      window?.localStorage?.removeItem("searchQuery");
+      setFirstExec(false);
+    }
+  }, []);
 
   return (
     <form
