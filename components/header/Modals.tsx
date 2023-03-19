@@ -8,7 +8,7 @@ import Loading from "$store/components/ui/Loading.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
-const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
+const Searchbar = lazy(() => import("$store/components/header/SearchBar.tsx"));
 
 interface Props {
   menu: MenuProps;
@@ -35,16 +35,16 @@ function Modals({ menu, searchbar }: Props) {
 
       <Modal
         title="Buscar"
-        mode="sidebar-right"
+        mode="searchBar"
         loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
+        open={displaySearchbar.value}
+        className="w-full"
         onClose={() => {
           displaySearchbar.value = false;
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} />
+          <Searchbar />
         </Suspense>
       </Modal>
 

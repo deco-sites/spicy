@@ -1,3 +1,5 @@
+import { tw } from "twind";
+import { css, theme } from "twind/css";
 import Text from "$store/components/ui/Text.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useEffect, useRef } from "preact/hooks";
@@ -6,6 +8,12 @@ import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 
 import Icon from "./Icon.tsx";
+
+const backdropSearchMobile = css`
+  &::backdrop {
+    
+  }
+`;
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -16,7 +24,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
-  mode?: "sidebar-right" | "sidebar-left" | "center";
+  mode?: "sidebar-right" | "sidebar-left" | "center" | "searchBar";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
@@ -24,6 +32,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
 const styles = {
   "sidebar-right": "animate-slide-left sm:ml-auto",
   "sidebar-left": "animate-slide-right",
+  "searchBar": "absolute left-0 top-0",
   center: "",
 };
 
@@ -56,11 +65,38 @@ const Modal = ({
     }
   }, [open]);
 
+  if (mode === "searchBar") {
+    return (
+      <dialog
+        ref={ref}
+        class={`
+        ${open ? "flex" : "hidden"}
+        flex items-start w-full h-full`}
+        style={`
+        padding: 0;
+        height: fit-content;
+        width: calc(100% - 30px);
+        max-width: unset;
+        z-index: 50;
+        margin: 90px auto 0;
+        `}
+        onClick={(e) =>
+          (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
+      >
+        <section class="flex w-full">
+          {loading === "lazy" ? lazy.value && children : children}
+        </section>
+      </dialog>
+    );
+  }
+
   return (
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop ${variant} ${
+      class={` ${
+        open ? "flex" : "hidden"
+      } items-start bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop ${variant} ${
         props.class ?? ""
       }`}
       onClick={(e) =>

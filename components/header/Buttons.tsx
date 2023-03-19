@@ -36,6 +36,29 @@ function MenuButton() {
   );
 }
 
+function CustomSearchButton() {
+  const { displaySearchbar } = useUI();
+
+  return (
+    <Button
+      variant="icon"
+      aria-label="open menu"
+      class="hover:bg-transparent !outline-none cursor-pointer opacity-[0.65]"
+      onClick={() => {
+        displaySearchbar.value = true;
+      }}
+    >
+      <Icon
+          id="Search"
+          width="22px"
+          height="22px"
+          strokeWidth={1}
+          fill="#000"
+        />
+    </Button>
+  );
+}
+
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
@@ -74,7 +97,7 @@ function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
   }
 
   if (variant === "search") {
-    return <SearchButton />;
+    return <CustomSearchButton />;
   }
 
   if (variant === "menu") {

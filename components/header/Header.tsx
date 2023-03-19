@@ -43,13 +43,15 @@ function Header(
 ) {
   return (
     <header>
+      <Modals
+        menu={{ items: navItems }}
+      />
+      
       <div class={`bg-default fixed w-full z-50 ${tw(headerShadow)}`}>
         <Navbar items={navItems} />
       </div>
 
-      <Modals
-        menu={{ items: navItems }}
-      />
+      
     </header>
   );
 }

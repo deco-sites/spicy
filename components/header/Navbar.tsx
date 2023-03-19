@@ -1,4 +1,4 @@
-import SearchBar from "$store/islands/SearchBar.tsx";
+import SearchBar from "$store/components/header/SearchBar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 
@@ -26,6 +26,7 @@ function Navbar({ items }: {
           </a>
 
         <div class="flex gap-1 mr-[5px]">
+          <HeaderButton variant="search" />
           <HeaderButton variant="cart" />
         </div>
       </div>
