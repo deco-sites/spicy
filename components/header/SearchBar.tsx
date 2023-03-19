@@ -5,7 +5,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 function SearchBar() {
   const isSearchPage: boolean = window?.location?.pathname === "/s";
   const initialValue = isSearchPage
-    ? (window.localStorage.getItem("searchQuery") ?? "")
+    ? (window?.localStorage?.getItem("searchQuery") ?? "")
     : "";
   const [inputValue, setInputValue] = useState(initialValue);
   let timeout: any = null;
