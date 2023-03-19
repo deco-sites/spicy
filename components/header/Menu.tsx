@@ -15,7 +15,11 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   const title = (
     <Text
       class={`flex-grow min-h-[40px] flex items-center justify-start text-[1.375rem] font-normal 
-      ${item.label === "Ofertas" ? "!text-white min-h[37px] !flex !justify-center" : ""}
+      ${
+        item.label === "Ofertas"
+          ? "!text-white min-h[37px] !flex !justify-center"
+          : ""
+      }
       ${
         level === 0
           ? "px-[15px]"
@@ -31,7 +35,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 
   return (
-    <li class={`!border-t-0 ${item.label === "Ofertas" ? '!border-b-1' : ''}`}>
+    <li class={`!border-t-0 ${item.label === "Ofertas" ? "!border-b-1" : ""}`}>
       <div
         class={`flex justify-between items-center w-full py-[4px] border-b-1 
         ${item.label === "Ofertas" ? "py-0 my-2 bg-store-color border-b-1" : ""}
@@ -45,7 +49,9 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
             : ""
         }`}
         onClick={() => {
-          if (hasChildren) open.value = !open.value;
+          if (hasChildren) {
+            open.value = !open.value;
+          }
         }}
       >
         {hasChildren
@@ -55,7 +61,9 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
         {hasChildren && (
           <Button variant="icon">
             <Icon
-              class={`ease-out duration-300 ${open.value === true ? "rotate-[180deg]" : ""}`}
+              class={`ease-out duration-300 ${
+                open.value === true ? "rotate-[180deg]" : ""
+              }`}
               id="ChevronDown"
               height={20}
               width={20}

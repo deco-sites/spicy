@@ -49,12 +49,12 @@ function CustomSearchButton() {
       }}
     >
       <Icon
-          id="Search"
-          width="22px"
-          height="22px"
-          strokeWidth={1}
-          fill="#000"
-        />
+        id="Search"
+        width="22px"
+        height="22px"
+        strokeWidth={1}
+        fill="#000"
+      />
     </Button>
   );
 }
